@@ -67,9 +67,16 @@ public class Word extends JFrame implements ActionListener {
         jCheckBoxCentered.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                textArea.setFont(
-                        new FontUIResource(textArea.getFont().getFamily(), Font.CENTER_BASELINE,
-                                (int) jSpinner.getValue()));
+                if (jCheckBoxCentered.isSelected()) {
+                    System.out.println(textArea.getFont().getFontName());
+                    textArea.setFont(new Font((String) jComboBox.getSelectedItem(), Font.CENTER_BASELINE,
+                            textArea.getFont().getSize()));
+                } else {
+                    textArea.setFont(
+                            new Font((String) jComboBox.getSelectedItem(), Font.CENTER_BASELINE | Font.ITALIC,
+                                    textArea.getFont().getSize()));
+                }
+                ;
             }
         });
         jLabelBold = new JLabel("Bold: ");
@@ -123,4 +130,13 @@ public class Word extends JFrame implements ActionListener {
     public void changeAction(ComponentUI c) {
 
     }
+
+    public boolean checkFont(int font) {
+
+        if (textArea.getFont().getFontName().indexOf(font) != -1) {
+            return true;
+        }
+        return false;
+    }
+
 }

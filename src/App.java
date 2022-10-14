@@ -2,7 +2,10 @@
 public class App {
     public static void main(String[] args) {
 
-        new Word();
+        config app = new config();
+        app.DatabaseConnect();
+        app.viewbyId(1);
+        // new Word();
 
     }
 
