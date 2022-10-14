@@ -23,14 +23,14 @@ public class Word extends JFrame implements ActionListener {
     JCheckBox jCheckBoxBold;
     JCheckBox jCheckBoxItalic;
 
-    Word() {
+    Word(String data) {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Bro text Editor");
         this.setSize(500, 500);
         this.setLayout(new FlowLayout());
         // this.setLocationRelativeTo(null);
 
-        textArea = new JTextArea("Let's write some text in this field textarea!!!");
+        textArea = new JTextArea(data);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         textArea.setFont(new Font(SETTING_FONT_FAMILY_DEFAULT, SETTING_FONT_STYLE_DEFAULT, SETTING_FONT_SIZE_DEFAULT));

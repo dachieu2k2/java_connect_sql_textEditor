@@ -4,8 +4,7 @@ public class App {
 
         config app = new config();
         app.DatabaseConnect();
-        app.viewbyId(1);
-        // new Word();
+        new Word(app.viewbyId(1));
 
     }
 

@@ -61,26 +61,25 @@ public class config {
         }
     }
 
-    public void viewbyId(int id) {
+    public String viewbyId(int id) {
         try {
             String insertquery = String.format("select * from `text-editor` where id = %d ", id);
             ResultSet result = statement.executeQuery(insertquery);
+            String h = "";
             System.out.println(result);
             while (result.next()) {
                 // System.out.println("\n");
                 System.out.println("id " + result.getString(1));
                 System.out.println("\tName " + result.getString(2));
                 System.out.println("\tAge " + result.getString(3));
+                h = result.getString(3);
                 System.out.println("\tcreated_At " + result.getString(4));
                 System.out.println("\n");
-
             }
-            if (result.next()) {
-                System.out.println("Value " + result.getString(2));
-                System.out.println("Value " + result.getString(3));
-            }
+            return h;
         } catch (SQLException ex) {
             System.out.println("Problem To Show Data");
+            return ex.getMessage();
         }
     }
 
